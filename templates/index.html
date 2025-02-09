@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shanghai Study Abroad</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>My Year in Shanghai</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Overview</h2>
+            <p>Welcome to my page about my year-long study abroad in Shanghai. Here, I'll share my experiences, photos, and insights from this incredible journey.</p>
+        </section>
+        
+        <section>
+            <h2>About Me</h2>
+            <p>From August 2023 to August 2024, I embarked on a transformative year-long journey to Shanghai. My initial goals were multifaceted: to immerse myself in Mandarin Chinese, experience a new culture, expand my network, and, importantly, take a step back from my previous roles as a web developer and data analyst at Nike to re-evaluate my career path. Shanghai, with its dynamic energy and position as a global hub, felt like the perfect place for this period of personal and professional exploration.</p>
+            <p>My background is in web development, primarily as a contractor, and data analysis, where I leveraged my skills at Nike. However, over time, I've developed a strong passion for the intersection of data, artificial intelligence, and insightful visualization. This portfolio represents a key step in my transition towards a more data science-focused career, showcasing my abilities in Python, data visualization, and business intelligence, all through the lens of my experiences in Shanghai.</p>
+            <p>While in Shanghai, I was struck by the seamless integration of technology into daily life. This portfolio features projects inspired by my observations and interactions within the city. One key visual element I've incorporated is an interactive map documenting the places I visited and the diverse international friendships I made, highlighting the global nature of my experience.</p>
+            <p>My core technical skills include Python (with libraries like Pandas, Matplotlib, Seaborn, and Plotly for data analysis and visualization), along with my prior experience in web development technologies such as HTML, CSS, JavaScript, and React. I'm also actively exploring the field of AI, particularly natural language processing and machine learning.</p>
+            <p>This portfolio is a testament to my ability to adapt, learn quickly, and apply my technical skills to real-world scenarios. I'm eager to leverage my combined experience in web development, data analysis, and my newfound passion for data science to contribute to a data-driven organization. I am particularly interested in roles that allow me to combine my technical expertise with my cross-cultural communication skills honed during my time in Shanghai.</p>
+        </section>
+        <section>
+            <h2>Data Summary</h2>
+            <table>
+              <thead>
+                <tr>
+                  <th>Data Item</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th># of Countries</th>
+                  <td>38</td>
+                </tr>
+                <tr>
+                  <th># of People (Assumed)</th>
+                  <td>105</td>
+                </tr>
+                <tr>
+                  <th>Top 5 Countries</th>
+                  <td>
+                    <ol>
+                      <li>Indonesia: 9</li>
+                      <li>Germany: 8</li>
+                      <li>Philippines: 8</li>
+                      <li>Korea: 6</li>
+                      <li>Japan: 5</li>
+                    </ol>
+                  </td>
+                </tr>
+                <tr>
+                  <th>% of Overall (Top 5)</th>
+                  <td>34.29%</td>
+                </tr>
+                <tr>
+                  <th>Total of Top 5</th>
+                  <td>36</td>
+                </tr>
+                <tr>
+                  <th>Total</th>
+                  <td>105</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+        <section>
+            <h2>Data Visualization</h2>
+            <canvas id="myChart" width="400" height="200"></canvas>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 My Shanghai Experience</p>
+    </footer>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    const ctx = document.getElementById('myChart').getContext('2d');
+    const myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: [
+                'Argentina', 'Australia', 'Azerbaijan', 'Belgium', 'Bulgaria', 'Burkina Faso/France',
+                'Cambodia', 'Canada', 'Costa Rica', 'Denmark', 'France', 'Germany', 'Hong Kong',
+                'Hungary', 'Indonesia', 'Iran', 'Israel', 'Italy', 'Jamaica/Sweden/Minnesota', 'Japan',
+                'Kazakhstan', 'Korea', 'Mexico', 'Mongolia', 'Netherlands', 'New Zealand', 'Panama',
+                'Peru', 'Philippines', 'Romania', 'Russia', 'Singapore', 'Spain', 'Sweden', 'Thailand',
+                'Turkey', 'UK', 'USA', 'Vietnam'
+            ],
+            datasets: [{
+                label: '# of Votes',
+                data: [
+                    1, 3, 1, 1, 1, 1, 3, 1, 1, 1, 3, 8, 4, 3, 9, 1, 2, 1, 1, 5,
+                    2, 6, 1, 1, 3, 1, 1, 1, 8, 1, 1, 5, 2, 1, 9, 2, 4, 4, 2
+                ],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'Number of Votes by Country'
+                }
+            },
+            scales: {
+                x: {
+                    title: {
+                        display: true,
+                        text: 'Countries'
+                    },
+                    ticks: {
+                        autoSkip: false,  // Disable auto-skipping to show all labels
+                        maxRotation: 90,  // Optionally rotate labels for better fit
+                        minRotation: 45
+                    }
+                },
+                y: {
+                    beginAtZero: true,
+                    title: {
+                        display: true,
+                        text: 'Number of Votes'
+                    }
+                }
+            }
+        }
+    });
+</script>
+
+</body>
+</html>
